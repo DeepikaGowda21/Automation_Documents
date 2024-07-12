@@ -1,0 +1,51 @@
+A version control system (VCS) is a tool that tracks changes to files and directories over time. It allows multiple contributors to collaborate on a project by managing changes, maintaining a history of revisions, and enabling the synchronization of work across different locations or among different team members. There are two main types of version control systems: centralized and distributed.
+
+we have two type of version control system
+--------------------------------------------
+1)Centralized Version Control Systems (CVCS):
+2)Distributed Version Control Systems(DVCS)
+
+----GIT----
+Overall, Git is a powerful and widely used version control system that plays a crucial role in modern software development workflows, enabling efficient collaboration, code management, and version control across teams of developers.
+
+---- GitHub:----
+
+GitHub is a web-based platform built around Git, providing hosting for Git repositories along with collaboration features and tools for software development projects.
+It serves as a central hub for hosting Git repositories in the cloud, allowing users to store, manage, and share their code online.
+GitHub offers collaboration features such as pull requests, issues, project boards, wikis, and code review tools, enabling teams to work together effectively on projects.
+It also provides social features like user profiles, activity feeds, and notifications, fostering a vibrant community of developers.git
+GitHub offers additional features such as integrations with third-party services, security features like branch protection and vulnerability scanning, and deployment options through services like GitHub Actions.
+
+..............Git Commands.............
+
+* git config -->global user.name "DeepikaGowda21"
+* git config -->global user.email "pn122550@gmail.com"
+* git config -->list
+* ls  --> used to see list
+* ls -a --> show all file with hiden fil
+* git add/git add . -->add to git
+* git commit -m "some message" -->it is the record of change 
+* git push origin main-->upload local repo content to remote repo
+*git remote add origin < link > -->we create 2nd remote
+*git remote -v --> verify remote
+*git branch --> to check branch
+*git branch -M main --> rename branch
+*git push -u origin main 
+
+
+
+
+ Clone and Status
+ -----------------
+Clone --> cloning a repository on our local machine
+            git clone<--some link-->
+Status --> displays the state of the code
+            git status
+            1)untracked --> new files that git doesnt yet track
+            2)modified  --> changes
+			3)staged    --> file is ready to be committed 
+			4)unmodified -> unchanged
+
+
+
+

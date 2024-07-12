@@ -1,0 +1,58 @@
+
+Selenium commands are of three types:-
+
+ Actions  -->Action commands operate the state of the application. Some of the action commands are: click(locator), focus(locator), close etc
+ Accessors ->Accessors are the type of commands which is responsible to store the result in variables. 
+ Assertions->Assertions use testers to verify the state of the application. Some of the assertion commands are verifyAlert(pattern),veifyAllButtons (pattern), and waitForErrorOnNext (message).
+
+-----------------------------------------------------
+Selenium1 --> Selenium RC is based on JavaScript.
+
+Selenium2 --> WebDriver
+
+Selenium3 --> Selenium IDE has 7 components: Menu Bar, Tool Bar, Address Bar, Test Case Pane, Test Script Editor Box, Start/Stop Recording Button, Log, and Reference Pane.
+
+Selenium4 --> Selenium Grid[Selenium grid component is used to run tests on dissimilar machines against different browsers in parallel]
+
+------------------------------------------------------
+1) How to open a new window and switch to the window ?
+ driver.switchTo().newWindow(WindowType.WINDOW);
+
+2) How to set the browser window size ?
+ driver.manage().window().setSize(new Dimension(800, 600));
+
+3) How to set browser window position ?
+ driver.manage().window().setPosition(new Point(0, 0));
+
+4) How to make browser full screen ?
+ driver.manage().window().fullscreen();
+
+----------------------------------------------------
+Relative locators :-
+
+Yes, relative locators were introduced in Selenium 4, also known as Selenium Grid 4. 
+Relative locators offer several strategies for locating elements relative to a reference element:
+
+near(): Locates an element near another element. You specify the reference element and the direction (to the left of, to the right of, above, below, or near) relative to it.
+
+above(): Locates an element above another element.
+
+below(): Locates an element below another element.
+
+toLeftOf(): Locates an element to the left of another element.
+
+toRightOf(): Locates an element to the right of another element.
+ 
+        driver.get("https://www.example.com");
+
+        WebElement referenceElement = driver.findElement(By.id("referenceElementId"));
+
+        WebElement elementToLeft = driver.findElement(RelativeLocator.withTagName("div").toLeftOf(referenceElement));
+       
+        WebElement elementBelow = driver.findElement(RelativeLocator.withTagName("div").below(referenceElement));
+        
+        elementToLeft.click();
+        elementBelow.sendKeys("Text input");
+
+
+

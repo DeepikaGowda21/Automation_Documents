@@ -1,0 +1,234 @@
+
+------------- SELENIUM XPATH WITH AXES METHODS-----------------------
+1) How to open a new window and switch to the window ?
+ driver.switchTo().newWindow(WindowType.WINDOW);
+
+2) How to set the browser window size ?
+ driver.manage().window().setSize(new Dimension(800, 600));
+
+3) How to set browser window position ?
+ driver.manage().window().setPosition(new Point(0, 0));
+
+4) How to make browser full screen ?
+ driver.manage().window().fullscreen();
+
+--------------------------------------------------
+Relative locators :-
+
+Yes, relative locators were introduced in Selenium 4, also known as Selenium Grid 4. 
+Relative locators offer several strategies for locating elements relative to a reference element:
+
+near(): Locates an element near another element. You specify the reference element and the direction (to the left of, to the right of, above, below, or near) relative to it.
+
+above(): Locates an element above another element.
+
+below(): Locates an element below another element.
+
+toLeftOf(): Locates an element to the left of another element.
+
+toRightOf(): Locates an element to the right of another element.
+ 
+        driver.get("https://www.example.com");
+
+        WebElement referenceElement = driver.findElement(By.id("referenceElementId"));
+
+        // Locate an element to the left of the reference element
+        WebElement elementToLeft = driver.findElement(RelativeLocator.withTagName("div").toLeftOf(referenceElement));
+
+        // Locate an element below the reference element
+        WebElement elementBelow = driver.findElement(RelativeLocator.withTagName("div").below(referenceElement));
+
+        // Perform actions on the located elements
+        elementToLeft.click();
+        elementBelow.sendKeys("Text input");
+
+----------------------------------------------------------------------------------------------------------
+
+REAT A XPATH FOR DISAPPEARING ELEMENT : ctrl+shift+p
+                                        type:focus
+					                    click on: emulate a focused page
+
+XPath (XML Path Language) is used to navigate through elements and attributes in an XML document. Axes methods in XPath allow you to select nodes relative to the current node. Here's a summary of the most commonly used XPath axes methods with examples:
+
+1)//tagname --> all elements which contain that tag name
+2)//tagname[text()='value] --> give which element contain that text
+3)//tagname[@AN='value'] --> which element contain that attribute
+4)//tagname[contains(text(),'value')] -->that sub text
+5//tagname[contains(@AN,'value')] -->we can also use and/or operator
+6(//tagname[text/attribute])[position]
+
+7)//tag[starts-with(@at,'value')] -->find dynamic webelement we give starting text
+  ex:id=name12344 //span[starts-with(text(),'Women's ')] 
+
+---Axes Methods---
+
+8)PARENT:
+     select the parent of the current node
+     //tagName[@av='value']//parent::tagname  
+  ex://div[starts-with(@id,'desktop-grid-2')]//parent::div
+    
+9)CHILD:
+      select all children of the current node
+      //tagName[@av='value']//child::tagname  
+   ex://select[@id='day-select']//child::*
+      //div[@class='scheduler-suggestions']/child::button[5]
+     
+10)SELF:
+     select the current node
+     //tagName[@av='value']//self::tagname  
+  ex://select[@id='day-select']//self::select
+
+11)DESCENDANT:
+      it selects all of the descendant(children,grandchildren)current node
+     //tagName[@av='value']//descendant::tagname
+
+12)DESCENDANT-OR-SELF:
+      it select the current node and all of its descendants if tagname for descendant and self are same
+     //tagName[@av='value']//descendant-or-self::tagname
+ 
+ 13)ANCESTOR:
+     it selects all of the ancestors(parent,granparent)of cuurent node
+	 //tagName[@av='value']//ancestor::tagname
+	 //span[text()='Female']//ancestor::div
+	 
+14)ANCESTOR-OR-SELF:
+     it selects current node and all of its ancestors if tagname of ancestor and self are same	 
+	 //tagName[@av='value']//ancestor-or-self::tagname
+	 //span[text()='Female']//ancestor-or-self::div
+	 
+15)FOLLOWING: 
+      it select all the nodes that appear after the current node
+       //tagName[@av='value']//following::tagname
+	   //span[text()='Widgets']//following::div
+	  
+16)FOLLOWING-SIBLING:
+      it selects all the nodes that have the same parent as the current node and appear after current node  
+	  //tagName[@av='value']//following-sibling::tagname
+	  //a[@class='sc-jqUVSM jAsVOe active']//following-sibling::a
+	 
+17)PRECEDING:
+      it select all the nodes that appear before the cuurent node	 
+      //tagName[@av='value']//preceding::tagname
+      //a[@class='sc-jqUVSM jAsVOe active']//preceding::a[2]
+18)PRECEDING-SIBLING:
+      it select all the nodes that have the same parent as current mode and appear before the current node
+       //tagName[@av='value']//preceding-sibling::tagname
+       //a[@href='/table']/preceding-sibling::a
+
+--------- X-Path using CSSSelectors ------------
+
+1. Basic Selectors
+------------------
+CSS: tagname
+CSS: 'div'
+XPath: //tagname
+
+2. Class Selectors
+-------------------
+CSS: .classname
+CSS: '.example'
+XPath: //tagname[contains(@class, 'classname')]
+
+3. ID Selectors
+------------------
+CSS: #id
+CSS:'#unique'
+XPath: //tagname[@id='id']
+
+4. Attribute Selectors
+------------------------
+CSS: [attribute='value']
+CSS:'input[type='text']'
+XPath: //tagname[@attribute='value']
+
+5. Child Selectors
+-----------------------
+CSS: parent > child
+CSS:'div > p'
+XPath: //parent/child
+
+6. Descendant Selectors
+--------------------------
+CSS: ancestor descendant
+CSS:'div p'
+XPath: //ancestor//descendant
+
+7. Sibling Selectors
+-----------------------
+CSS: previous + next
+XPath: //previous/following-sibling::*[1][self::next]
+
+8. Nth-child Selectors
+--------------------------
+CSS: :nth-child(n)
+CSS: 'div:nth-child(2)
+XPath: //tagname[position()=n]
+   
+ 
+------------ SHADOWDOM X-PATH--------------------
+
+Introduction to Shadow DOM:
+
+*Shadow DOM allows for encapsulated DOM and style for web components.
+*Elements within a shadow DOM are not accessible directly from the main document DOM. 
+*This encapsulation is beneficial for modular and reusable web components, but it requires special handling when using Selenium for automation.
+
+Accessing Shadow DOM Elements;
+
+To interact with elements inside a shadow DOM, you typically need to:
+
+1)Locate the shadow host element.
+2)Access the shadow root.
+3)Traverse the shadow DOM to find and interact with the target element.
+
+JavaScript Execution in Selenium:
+---------------------------------------
+  // Set up WebDriver
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+        WebDriver driver = new ChromeDriver();
+
+        // Navigate to the page with shadow DOM
+        driver.get("http://example.com/page-with-shadow-dom");
+
+        // Locate the shadow host element
+        WebElement shadowHost = driver.findElement(By.cssSelector("shadow-host-selector"));
+
+        // Execute JavaScript to get shadow root
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        WebElement shadowRoot = (WebElement) js.executeScript("return arguments[0].shadowRoot", shadowHost);
+
+        // Traverse the shadow DOM to find the target element
+        WebElement shadowElement = shadowRoot.findElement(By.cssSelector("shadow-element-selector"));
+
+        // Interact with the element
+        shadowElement.click();
+
+        // Close the browser
+        driver.quit();
+		
+JavaScript Snippet for Repeated Use:
+-------------------------------------
+
+   String script = "return document.querySelector('shadow-host-selector').shadowRoot.querySelector('shadow-element-selector')";
+   WebElement shadowElement = (WebElement) js.executeScript(script);
+   shadowElement.click();	
+  
+  
+   String script2 = "return document.querySelector('#shadow-root').shadowRoot.querySelector('#inner-shadow-dom').shadowRoot.querySelector('#nested-shadow-element')";
+		   WebElement shadowElement2 = (WebElement) js.executeScript(script2);
+		   System.out.println(shadowElement2.getText());
+		      
+
+SELENIUM WebDriver
+----------------------
+WebElement shadoWebElement=driver.findElement(By.cssSelector("settings-ui")).getShadowRoot()
+				                   .findElement(By.cssSelector("settings-main#main")).getShadowRoot()
+				                   .findElement(By.cssSelector("settings-basic-page.cr-centered-card-container")).getShadowRoot()
+				                   .findElement(By.cssSelector("settings-section#performanceSettingsSection")).getShadowRoot()
+				                   .findElement(By.id("title"));
+				                   System.out.println(shadoWebElement.getText());
+		
+		
+          
+          
+

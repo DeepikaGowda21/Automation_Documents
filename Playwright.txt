@@ -1,0 +1,59 @@
+Python
+
+Python is a high-level programming language known for its simplicity and readability. It's widely used in various domains such as web development, data analysis, machine learning, artificial intelligence, scientific computing, and more. Python's syntax emphasizes code readability with its use of significant whitespace.
+
+Command for Run test ---> npx playwright test HomePageTest.spec.js --project=chromium --headed
+
+----------Methods--------
+1) goto() --> used to enter the url
+2)title() -->uset to get title of the page
+
+
+Locators
+--------------------------------
+
+Locate by role -->getByRole('heading', { name: 'Dashboard' })  
+Locate by label
+Locate by placeholder
+Locate by text-->a
+Locate by alt text
+Locate by title
+Locate by test id
+Locate by CSS or XPath-->await page.locator('css=button').click();
+                        await page.locator('xpath=//button').click();
+                        await page.locator('button').click();
+                        await page.locator('//button').click();
+                        locator('//*[@id="tsf"]/div[2]/div[1]/div[1]/div/div[2]/input') 
+
+
+
+
+
+
+
+Action	Description
+-------------------------------------------
+locator.check()	-->  Check the input checkbox
+locator.click() --> Click the element
+locator.uncheck()--> Uncheck the input checkbox
+locator.hover()	--> Hover mouse over the element
+locator.fill()/type()	--> Fill the form field, input text
+locator.focus() --> Focus the element
+locator.press()	-->  Press single key
+locator.setInputFiles()	--> Pick files to upload
+locator.selectOption()	--> Select option in the drop down
+
+
+
+Assertion	Description
+----------------------------------------------------
+expect(locator).toBeChecked()	Checkbox is checked
+expect(locator).toBeEnabled()	Control is enabled
+expect(locator).toBeVisible()	Element is visible
+expect(locator).toContainText()	Element contains text
+expect(locator).toHaveAttribute()	Element has attribute
+expect(locator).toHaveCount()	List of elements has given length
+expect(locator).toHaveText()	Element matches text
+expect(locator).toHaveValue()	Input element has value
+expect(page).toHaveTitle()	Page has title
+expect(page).toHaveURL()	Page has URL
