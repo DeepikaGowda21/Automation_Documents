@@ -1,0 +1,141 @@
+1)what is the difference betwen 401 and 403 ?
+-------------------------------------------------
+HTTP status codes are standardized codes returned by web servers in response to client requests made to the server, including those made to APIs. These status codes provide information about the status of the request and help both clients and servers understand how to handle the request and response appropriately. Some of the most common HTTP status codes encountered in APIs include:
+
+200 OK
+
+201 Created: The request has been fulfilled, resulting in the creation of a new resource.
+
+400 Bad Request: The server cannot process the request due to a client error (e.g., malformed request syntax, invalid parameters).
+
+401 Unauthorized: The request requires user authentication. The client needs to authenticate to get the requested response.
+
+403 Forbidden: The server understood the request, but it refuses to authorize it. Typically, this is due to the client not having sufficient permissions.
+
+404 Not Found: The server can't find the requested resource. It might be removed permanently or temporarily unavailable.
+
+405 Method Not Allowed: The method specified in the request is not allowed for the resource identified by the request URI.
+
+429 Too Many Requests: The user has sent too many requests in a given amount of time. Intended to prevent abuse, rate limiting, or DoS attacks.
+
+500 Internal Server Error: A generic error message, given when an unexpected condition was encountered and no more specific message is suitable.
+
+503 Service Unavailable: The server is currently unable to handle the request due to temporary overloading or maintenance of the server.
+
+2)What are all the HTTP Methods we have?
+-------------------------------------------
+GET: Retrieves data from the server specified by the URL. It should only retrieve data and should have no other effect on the data.
+
+POST: Submits data to be processed to the server specified by the URL. It is often used to create new resources.(201)
+
+PUT: Updates the resource specified by the URL with the data provided in the request body. It can also be used to create a new resource if the resource does not exist.(200)
+
+PATCH: Applies partial modifications to a resource. It is used to apply changes to part of a resource.
+
+DELETE: Deletes the resource specified by the URL.
+
+OPTIONS: Returns the HTTP methods that the server supports for the specified URL. It is often used to check the allowed methods before sending a request.
+
+HEAD: Similar to GET but retrieves only the headers and not the body of the response. It is often used to check for the existence of a resource and to obtain metadata about the resource.
+
+TRACE: Echoes back the received request, which is useful for debugging or diagnostic purposes.
+
+CONNECT: Establishes a tunnel to the server identified by the URL for the purpose of establishing a TLS/SSL-encrypted connection.
+
+3)What is the difference between SOAP and REST ?
+---------------------------------------------------
+
+SOAP -> SIMPLE OBJECT ACCESS PROTOCAL 
+                                   
+SOAP: SOAP is a protocol based on XML for exchanging structured information between systems. It relies heavily on XML for message formatting and typically uses HTTP or SMTP as the transport protocol. SOAP follows a strict specification and is more tightly coupled, often using WSDL (Web Services Description Language) for defining services and XSD (XML Schema Definition) for message structure.
+
+RSET -> REPRESENTATIONAL STATE TRANSFER
+
+REST: REST is an architectural style that uses simple, lightweight standards such as HTTP and URI for communication between systems. It emphasizes statelessness and resource-based interactions. RESTful services often use JSON (JavaScript Object Notation) or XML for message formatting, but they are not restricted to any specific format.
+
+4)WHAT IS THE DIFFERENCE BETWEEN WED SERVICES AND APIs ?
+----------------------------------------------------------
+Web Service:
+
+Definition: A web service is a standardized way of integrating web-based applications using open standards over the internet. It provides a platform-independent way of allowing various software applications to communicate with each other.
+Communication Protocol: Web services typically use protocols such as SOAP (Simple Object Access Protocol) or REST (Representational State Transfer) for communication.
+Functionality: Web services can provide a wide range of functionalities, including data exchange, remote procedure calls (RPC), and business process integration.
+Implementation: Web services are often implemented using technologies such as SOAP, WSDL (Web Services Description Language), and XML.
+Example: An enterprise may expose a web service to allow different departments to access and update customer information stored in a central database.
+
+API (Application Programming Interface):
+Definition: An API is a set of rules, protocols, and tools that allows different software applications to communicate with each other. It defines how software components should interact and can be used to access the functionality or data of a software application.
+Communication Protocol: APIs can use various communication protocols, including HTTP, HTTPS, and other network protocols.
+Functionality: APIs provide specific functionalities or services that can be accessed by other software applications. They define the methods and data formats that applications can use to request and exchange information.
+Implementation: APIs can be implemented in various ways, including as libraries, frameworks, or web services.
+Example: Social media platforms provide APIs that allow developers to access features such as posting updates, retrieving user information, or accessing analytics data.
+
+5)Difference between Asynchronous and Synchronous ? 
+
+ In a synchronous => API, the client sends a request to the server and waits for a response before proceeding with further execution. This means that the client is blocked until it receives a response from the server.
+
+ In an asynchronous => API, the client sends a request to the server but does not wait for a response immediately. Instead, it continues with its operations or executes a callback function. The server processes the request independently and may send a response later.
+
+
+
+6) Rest and Restful ?
+ REST -> 
+    REST (Representational State Transfer) is an architectural style for designing networked applications. It was introduced by Roy Fielding in his doctoral dissertation in 2000. RESTful, on the other hand, is an adjective used to describe systems that adhere to the principles of REST.
+
+ RESTFUL ->  
+         RESTful systems are often used in building web APIs that are scalable, maintainable, and interoperable.
+
+
+7)TYPES OF APIs ?
+Web APIs (HTTP APIs): These APIs are designed to be accessed over the web using standard protocols like HTTP and HTTPS. Web APIs enable communication and data exchange between different software systems over the internet. Examples include RESTful APIs, SOAP APIs, GraphQL APIs, and more.
+
+Internal APIs (Private APIs): Internal APIs are used within an organization or a company to facilitate communication and data exchange between different internal systems, services, or applications. These APIs are not exposed to external users or third-party developers.
+
+External APIs (Public APIs): External APIs, also known as public APIs, are made available by organizations or companies to external developers, allowing them to access certain features or data of the organization's products or services. These APIs enable third-party developers to integrate with the organization's platform, extend its functionality, or build new applications.
+
+Partner APIs: Partner APIs are a type of external API that is specifically designed for trusted partners of an organization. These APIs provide access to additional features or data compared to public APIs and are typically used for deeper integration between organizations or for providing premium services to partners.
+
+Open APIs: Open APIs, also known as open web APIs or open APIs, are publicly available APIs that are accessible to anyone without restrictions. These APIs are often provided by organizations or companies to encourage innovation, collaboration, and development within a community of developers.
+
+Closed APIs: Closed APIs are the opposite of open APIs and are accessible only to selected users or organizations. Closed APIs may require authentication, authorization, or subscription fees for access. These APIs are often used for monetization or for providing exclusive access to certain features or data.
+
+Composite APIs: Composite APIs, also known as mashup APIs, are APIs that aggregate data or functionality from multiple sources or APIs into a single API. These APIs allow developers to combine and customize data or services from different providers to create new and unique applications or features.
+
+RESTful APIs: RESTful APIs (Representational State Transfer) are a type of web API that follows the principles of REST architecture. These APIs use standard HTTP methods (GET, POST, PUT, DELETE, etc.) for communication and typically utilize JSON or XML for data interchange.
+
+SOAP APIs: SOAP APIs (Simple Object Access Protocol) are a type of web API that uses the SOAP protocol for communication. These APIs typically rely on XML for message format and WSDL (Web Services Description Language) for service description.
+
+GraphQL APIs: GraphQL APIs are a query language for APIs and a runtime for executing those queries. Unlike RESTful APIs, which expose predefined endpoints for data retrieval, GraphQL APIs allow clients to request only the data they need in a single request, reducing over-fetching and under-fetching of data.
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
